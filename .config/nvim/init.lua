@@ -42,12 +42,6 @@ require('nvim-treesitter.configs').setup({
   highlight = { enable = true }
 })
 
-local path = require('path')
-
-for _, file in ipairs(path.list_dir(vim.fn.expand('~/.config/nvim/vim'))) do
-  if file.type == 'file' then
-    vim.cmd('source ' .. vim.fn.expand('~/.config/nvim/vim') .. '/' .. file.name)
-  end
-end
+vim.cmd('source ' .. vim.fn.expand('~/.config/nvim/vim') .. '/coc-configs.vim')
 
 vim.fn.setenv("C_INCLUDE_PATH", vim.fn.getcwd() .. "/include")
